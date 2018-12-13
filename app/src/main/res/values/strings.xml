@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AT_smsValidation</string>
+    <string name="hint">- - - -</string>
+    <string name="iint"> - </string>
 </resources>
