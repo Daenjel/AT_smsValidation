@@ -1,6 +1,7 @@
 package com.daenjel.at_smsvalidation;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.africastalking.AfricasTalking;
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private final int port = 8088;
 
     Button mButton;
-    EditText mUserName, mNumber, mPassword;
+    public EditText mUserName, mNumber, mPassword;
     BottomSheet bottomSheet;
 
     @Override
@@ -64,18 +66,18 @@ public class MainActivity extends AppCompatActivity {
                     //Toast the response
                     Toast.makeText(MainActivity.this, recipients.get(0).messageId + " " + recipients.get(0).status,Toast.LENGTH_LONG).show();
                 } catch (IOException e){
-
+                    Toast.makeText(MainActivity.this, "Failed to Send Code",Toast.LENGTH_LONG).show();
                     Log.e("SMS FAILURE", e.toString());
-                }
+                }/*finally {
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                }*/
                 return null;
             }
         };
 
         smsTask.execute();
     }
-    /*
-        implementation of connectToServer()
-         */
+    //  implementation of connectToServer()
     private void connectToServer(){
 
         //Initialize te sdk, and connect to our server. Do this in a try catch block
@@ -131,14 +133,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Bundle args = new Bundle();
-        args.putString("key", mNumber.getText().toString());
-        bottomSheet.setArguments(args);
-        /* Set the numbers you want to send to in international format */
-        //final String recipient = mNumber.getText().toString();
-
+        Bundle bund = new Bundle();
+        bund.putString("key", mNumber.getText().toString());  // Set the numbers you want to send to in international format
+        bottomSheet.setArguments(bund);
         bottomSheet.show(getSupportFragmentManager(),"Africa's Talking");
 
-        //sendMessage(message,recipient);
     }
 }

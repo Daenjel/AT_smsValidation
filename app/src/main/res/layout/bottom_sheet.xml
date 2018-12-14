@@ -14,7 +14,7 @@
     <TextView
         android:id="@+id/confirm"
         android:text="Please confirm that the Number below is correct"
-        android:textStyle="italic"
+        android:textStyle="normal"
         android:layout_marginTop="15dp"
         android:textColor="@android:color/black"
         android:textSize="20sp"
@@ -25,7 +25,7 @@
     <TextView
         android:id="@+id/num"
         android:layout_below="@id/confirm"
-        android:text="Number: "
+        android:text="Number:  "
         android:textStyle="normal"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -47,72 +47,74 @@
         android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <Button
+    <TextView
         android:id="@+id/btnChange"
         android:layout_gravity="center_horizontal"
         android:text="Change"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_toLeftOf="@id/btnOkay"
         android:layout_marginBottom="15dp"
         android:layout_below="@id/display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:textColor="#FFFFFFFF"
-        android:textSize="20sp"
-        android:background="#0B7441"/>
-    <Button
+        android:textColor="#0B7441"
+        android:textSize="20sp"/>
+    <TextView
         android:id="@+id/btnOkay"
         android:layout_gravity="center_horizontal"
         android:text="Ok"
-        android:layout_toRightOf="@id/btnChange"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:textStyle="bold"
         android:layout_marginBottom="15dp"
         android:layout_below="@id/display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:textColor="#FFFFFFFF"
-        android:textSize="20sp"
-        android:background="#0B7441"/>
+        android:textColor="#0B7441"
+        android:textSize="20sp"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/verifyLay"
         android:visibility="gone"
-        android:layout_marginBottom="50dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/bool"
             android:gravity="center_horizontal|center_vertical"
             android:textSize="30sp"
-            android:layout_above="@id/card"
+            android:textColor="#0B7441"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="Verification Code:" />
 
         <LinearLayout
             android:id="@+id/card"
-            android:layout_centerInParent="true"
             android:orientation="horizontal"
+            android:layout_below="@id/bool"
+            android:padding="25dp"
             android:gravity="center_horizontal|center_vertical"
             android:layout_width="match_parent"
             android:layout_height="100dp">
 
             <EditText
-                android:id="@+id/fF"
-                android:layout_width="wrap_content"
-                android:textSize="50sp"
+                android:id="@+id/editCode"
+                android:layout_width="match_parent"
+                android:textSize="30sp"
                 android:inputType="number"
+                android:gravity="center_horizontal|center_vertical"
                 android:hint="@string/hint"
                 android:maxLength="4"
                 android:layout_marginLeft="@dimen/dis"
                 android:layout_marginStart="@dimen/dis"
                 android:textColor="@android:color/black"
                 android:background="@drawable/my_border"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>
@@ -120,16 +122,18 @@
             android:layout_below="@id/card"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:backgroundTint="#03A9F4"
+            android:backgroundTint="#0B7441"
             android:layout_gravity="center_horizontal|center_vertical"
             app:cardElevation="15dp"
             app:cardCornerRadius="15dp"
+            android:layout_marginBottom="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/btnVal"
                 android:text="Validate"
+                android:textColor="@android:color/white"
                 android:background="@android:color/transparent"
                 android:textStyle="normal"
                 android:layout_width="match_parent"
